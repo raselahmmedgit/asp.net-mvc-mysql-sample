@@ -17,8 +17,8 @@ namespace RnD.MySqlCFSample.Models
 
         }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Product> Product { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace RnD.MySqlCFSample.Models
 
                             };
 
-            categories.ForEach(c => context.Categories.Add(c));
+            categories.ForEach(c => context.Category.Add(c));
 
             context.SaveChanges();
 
@@ -91,7 +91,7 @@ namespace RnD.MySqlCFSample.Models
 
                         };
 
-            products.ForEach(p => context.Products.Add(p));
+            products.ForEach(p => context.Product.Add(p));
 
             context.SaveChanges();
 

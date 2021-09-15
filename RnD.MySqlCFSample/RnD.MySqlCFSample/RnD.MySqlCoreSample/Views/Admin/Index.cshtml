@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Admin Page";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="text-center">
+            <h1 class="display-4">Welcome</h1>
+            <p>MySql Core Web</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="col-3">
+                @item.StudentId
+            </div>
+            <div class="col-3">
+                @item.StudentName
+            </div>
+            <div class="col-3">
+                @item.EmailAddress
+            </div>
+            <div class="col-3">
+                @item.DateOfBirth.ToShortDateString()
+            </div>
+        }
+    }
+</div>

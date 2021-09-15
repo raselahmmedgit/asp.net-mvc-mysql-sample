@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div id="indexPage">
+    <h2>
+        Category List
+    </h2>
+    <div>
+        <table id="categoryDataTable" class="dataTable">
+            <thead>
+                <tr>
+                    <th>
+                        Options
+                    </th>
+                    <th>
+                        Category Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+
+        var dataTableObjData;
+
+        $(document).ready(function () {
+
+            //start DataTable Script
+
+            dataTableObjData = $('#categoryDataTable').dataTable({
+                "bJQueryUI": true,
+                "bAutoWidth": false,
+                "sPaginationType": "full_numbers",
+                "bSort": false,
+                "oLanguage": {
+                    "sLengthMenu": "Display _MENU_ records per page",
+                    "sZeroRecords": "Nothing found - Sorry",
+                    "sInfo": "Showing _START_ to _END_ of _TOTAL_ records",
+                    "sInfoEmpty": "Showing 0 to 0 of 0 records",
+                    "sInfoFiltered": "(filtered from _MAX_ total records)"
+                },
+                "bProcessing": true,
+                "bServerSide": true,
+                "sAjaxSource": "/Category/GetCategories",
+                "aoColumns": [{ "sName": "ID",
+                    "bSearchable": false,
+                    "bSortable": false,
+                    "fnRender": function (oObj) {
+                        return null;
+
+                    }
+
+                },
+                          { "sName": "CATEGORYNAME" }
+            ]
+            });
+
+            //end DataTable Script
+
+        });
+
+    </script>

@@ -48,17 +48,17 @@ namespace RnD.MySqlCFSample
                 Database.SetInitializer(new DBInitializer());
 
                 //MySql ConnectionString
-                //string connectionString = "server=localhost;user id=root;password=123456;database=ef_db;port=3306";
+                string connectionString = "server=localhost;user id=rasel;password=123456;database=ef_db;port=3306";
 
                 //MySql ProviderName
-                //string providerName = "MySql.Data.MySqlClient";
+                string providerName = "MySql.Data.MySqlClient";
 
-                //Sql
-                string connectionString = "Data Source=|DataDirectory|APP_DB.sdf";
+                ////Sql
+                //string connectionString = "Data Source=|DataDirectory|APP_DB.sdf";
 
-                //Sql
-                string providerName = "System.Data.SqlServerCe.4.0";
-                
+                ////Sql
+                //string providerName = "System.Data.SqlServerCe.4.0";
+
                 //Need to Default Connection Factory
                 //MySql Factory
                 Database.DefaultConnectionFactory = new SqlCeConnectionFactory(providerName, "", connectionString); //by String
@@ -66,7 +66,8 @@ namespace RnD.MySqlCFSample
 
                 using (var context = new AppDbContext(connectionString))
                 {
-                    context.Database.Initialize(force: true);
+                    //context.Database.Initialize(force: true);
+                    context.Database.CreateIfNotExists();
                 }
             }
             catch (Exception ex)

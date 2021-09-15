@@ -22,7 +22,7 @@ namespace RnD.MySqlCFSample.Controllers
 
         public JsonResult GetCategoryList()
         {
-            var categoryList = _db.Categories.ToList();
+            var categoryList = _db.Category.ToList();
 
             return Json(categoryList.Select(c => new { CategoryId = c.CategoryId, CategoryName = c.Name }), JsonRequestBehavior.AllowGet);
         }
@@ -30,7 +30,7 @@ namespace RnD.MySqlCFSample.Controllers
         // for display datatable
         public ActionResult GetCategories(DataTableParamModel param)
         {
-            var categories = _db.Categories.ToList();
+            var categories = _db.Category.ToList();
 
             var viewCategorys = categories.Select(cat => new CategoryTableModel() { CategoryId = Convert.ToString(cat.CategoryId), Name = cat.Name });
 

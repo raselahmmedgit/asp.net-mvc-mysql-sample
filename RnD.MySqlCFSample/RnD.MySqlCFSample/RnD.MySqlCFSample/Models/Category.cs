@@ -11,11 +11,12 @@ namespace RnD.MySqlCFSample.Models
     {
         [Key]
         public int CategoryId { get; set; }
+        
         [DisplayName("Category Name")]
         [Required(ErrorMessage = "Category Name is required")]
         [MaxLength(200)]
         public string Name { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        //public virtual ICollection<Product> Products { get; set; }
     }
 }

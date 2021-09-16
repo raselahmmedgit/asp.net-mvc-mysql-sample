@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RnD.MySqlCoreSample.Core;
 using RnD.MySqlCoreSample.Data;
 using RnD.MySqlCoreSample.EntityModels;
 using RnD.MySqlCoreSample.Identity;
@@ -19,8 +20,8 @@ namespace RnD.MySqlCoreSample
             {
                 services.AddRouting(options => options.LowercaseUrls = true);
 
-                //// Initializes and seeds the database.
-                //InitializeAndSeedDbAsync(configuration);
+                // Initializes and seeds the database.
+                InitializeAndSeedDbAsync(configuration);
             }
             catch (Exception)
             {
@@ -33,17 +34,26 @@ namespace RnD.MySqlCoreSample
         {
             try
             {
-                using (var context = new AppDbContext())
+                AppConstants.IsDatabaseCreate = configuration["AppConfig:IsDatabaseCreate"] == null ? true : bool.Parse(configuration["AppConfig:IsDatabaseCreate"].ToString());
+                AppConstants.IsMasterDataInsert = configuration["AppConfig:IsMasterDataInsert"] == null ? true : bool.Parse(configuration["AppConfig:IsMasterDataInsert"].ToString());
+                if (!AppConstants.IsDatabaseCreate)
                 {
-                    var canConnect = context.Database.CanConnect();
-                    if (!canConnect)
+                    using (var context = new AppDbContext())
                     {
-                        if (AppDbContextInitializer.CreateIfNotExists())
+                        var canConnect = context.Database.CanConnect();
+                        if (!canConnect)
                         {
-                            AppDbContextInitializer.SeedData();
+                            if (AppDbContextInitializer.CreateIfNotExists())
+                            {
+                                if (!AppConstants.IsMasterDataInsert)
+                                {
+                                    AppDbContextInitializer.SeedData();
+                                }
+                            }
                         }
                     }
                 }
+                
             }
             catch (Exception)
             {

@@ -1,4 +1,4 @@
-﻿namespace RnD.MySqlCoreSample.Controllers
+﻿namespace RnD.MySqlCoreSample.Core
 {
     public class AppConstants
     {
@@ -10,7 +10,10 @@
         public static string DefaultLogoPath = "default/images/default-image.png";
         public static string[] AllowedUploadedFileTypes = { "image/png", "image/jpg", "image/jpeg", "image/png" };
         public static string BaseUrl = "";
-        public static bool IsDevelopmentMode = true;
+
+        public static bool IsMySqlDatabase = true;
+        public static bool IsDatabaseCreate = true;
+        public static bool IsMasterDataInsert = true;
 
         public static int PageSize = 10;
         public static int Page = 1;

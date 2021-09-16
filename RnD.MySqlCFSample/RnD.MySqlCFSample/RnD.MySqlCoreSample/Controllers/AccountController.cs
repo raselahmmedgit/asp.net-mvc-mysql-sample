@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RnD.MySqlCoreSample.Core;
 using RnD.MySqlCoreSample.Helpers;
 using RnD.MySqlCoreSample.Identity;
 using RnD.MySqlCoreSample.ViewModels;

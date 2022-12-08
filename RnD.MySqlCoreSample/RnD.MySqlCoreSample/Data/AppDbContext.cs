@@ -17,15 +17,15 @@ namespace RnD.MySqlCoreSample.Data
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
-                string connectionString = configuration.GetConnectionString("DefaultConnection");
-                optionsBuilder.UseMySQL(connectionString);
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+        //        string connectionString = configuration.GetConnectionString("DefaultConnection");
+        //        optionsBuilder.UseMySQL(connectionString);
+        //    }
+        //}
 
         //Identity
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }

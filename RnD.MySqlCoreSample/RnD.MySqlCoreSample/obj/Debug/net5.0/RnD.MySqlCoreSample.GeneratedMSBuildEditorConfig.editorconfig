@@ -5,6 +5,7 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RnD.MySqlCoreSample
 build_property.ProjectDir = C:\Users\rasel.ahmmed\Documents\GitHub\asp.net-mvc-mysql-sample\RnD.MySqlCoreSample\RnD.MySqlCoreSample\

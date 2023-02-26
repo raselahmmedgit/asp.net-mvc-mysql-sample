@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\RnD.MySqlCoreSample.props" />
-</Project>
